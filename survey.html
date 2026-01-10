@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VSedu Survey</title>
+  <link rel="stylesheet" href="survey.css">
+</head>
+<body>
+
+   <a href="VSedu.html" class="back-link">← Back to VSedu</a>
+
+<div class="progress-wrapper">
+  <div class="progress-label">Survey completed 70%</div>
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
+</div> 
+    <header>
+  <h1 id="title">VSedu Learning Experience Survey</h1>
+  <p id="description">
+    Help us improve flashcards, summaries, quizzes, and focus tools inside VSedu.
+  </p>
+</header>
+
+<form id="survey-form">
+
+  <fieldset>
+    <legend>Personal Information</legend>
+
+    <label id="name-label" for="name">
+      Name:
+      <input
+        id="name"
+        type="text"
+        placeholder="John Doe"
+        required
+      >
+    </label>
+    <br><br>
+
+    <label id="email-label" for="email">
+      Email:
+      <input
+        id="email"
+        type="email"
+        placeholder="example@email.com"
+        required
+      >
+    </label>
+    <br><br>
+
+    <label id="number-label" for="number">
+      Age:
+      <input
+        id="number"
+        type="number"
+        min="3"
+        max="100"
+        placeholder="25"
+      >
+    </label>
+  </fieldset>
+
+  <br>
+
+  <fieldset>
+    <legend>About VSedu</legend>
+
+    <label for="dropdown">What are you using VSedu for?</label>
+    <select id="dropdown">
+      <option value="school">School</option>
+      <option value="university">University</option>
+      <option value="self-learning">Self-learning</option>
+      <option value="coding-bootcamp">Coding bootcamp</option>
+    </select>
+
+    <br><br>
+
+    <p>How do you usually study?</p>
+
+    <input id="solo" type="radio" name="study-mode" value="solo">
+    <label for="solo">Solo</label>
+
+    <input id="with-ai" type="radio" name="study-mode" value="with-ai">
+    <label for="with-ai">With AI</label>
+
+    <input id="with-friends" type="radio" name="study-mode" value="with-friends">
+    <label for="with-friends">With friends</label>
+
+    <input id="with-teachers" type="radio" name="study-mode" value="with-teachers">
+    <label for="with-teachers">With teachers</label>
+
+  </fieldset>
+
+  <br>
+
+  <fieldset>
+    <legend>Which VSedu tools do you use?</legend>
+
+    <input id="flashcards" type="checkbox" value="flashcards">
+    <label for="flashcards">Flashcards</label><br>
+
+    <input id="docu-sum" type="checkbox" value="docu-sum">
+    <label for="docu-sum">Document summarizer</label><br>
+
+    <input id="study-timer" type="checkbox" value="study-timer">
+    <label for="study-timer">Study timer</label><br>
+
+    <input id="focus-mode" type="checkbox" value="focus-mode">
+    <label for="focus-mode">Focus mode</label><br>
+
+    <input id="quizzes-exams" type="checkbox" value="quizzes-exams">
+    <label for="quizzes-exams">Quizzes & Exams</label><br>
+
+    <input id="progress-tracker" type="checkbox" value="progress-tracker">
+    <label for="progress-tracker">Progress tracker</label>
+  </fieldset>
+
+  <br>
+
+  <label for="comments">Tell us how VSedu could help you study better:</label><br>
+  <textarea id="comments" placeholder="Additional comments..." rows="6" cols="40"></textarea>
+
+  <br><br>
+
+  <button id="submit" type="submit">Submit</button>
+
+</form>
+</body>
+</html>
