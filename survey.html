@@ -6,7 +6,9 @@
   <link rel="stylesheet" href="survey.css">
 </head>
 <body>
-  
+
+<canvas id="background-canvas"></canvas>
+
 <a href="VSedu.html" class="back-link">← Back to VSedu</a>
 
 <a href="login.html" class="login-button fixed-login">Login</a>
@@ -18,12 +20,19 @@
     <div class="progress-fill"></div>
   </div>
 </div> 
-    <header>
-  <h1 id="title">VSedu Learning Experience Survey</h1>
-  <p id="description">
-    Help us improve flashcards, summaries, quizzes, and focus tools inside VSedu.
-  </p>
+
+<!-- Space animation canvas -->
+<canvas id="space-canvas"></canvas>
+
+<header>
+    <h1 id="title">VSedu Learning Experience Survey</h1>
+    <p id="description">
+        Help us improve flashcards, summaries, quizzes, and focus tools inside VSedu.
+    </p>
 </header>
+
+<br> 
+<br>
 
 <form id="survey-form">
 
@@ -129,5 +138,11 @@
   <button id="submit" type="submit">Submit</button>
 
 </form>
+<script src="spacesurvey.js"></script>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 VSedu. All rights reserved. | Designed with 💜 for better learning.</p>
+</footer>
 </body>
 </html>

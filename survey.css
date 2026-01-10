@@ -1,4 +1,3 @@
-survey.css
 /* ===============================
    VSedu Survey – Neon UI
 ================================ */
@@ -14,9 +13,11 @@ body {
     background: radial-gradient(circle at top, #1b0033, #05000f);
     font-family: "Segoe UI", Arial, sans-serif;
     color: #e0d9ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+body > header,
+body > form {
+    display: block;
+    margin: 0 auto;
 }
 
 /* ===============================
@@ -325,4 +326,65 @@ textarea:focus {
     box-shadow:
         0 0 25px rgba(255, 0, 204, 1),
         0 0 50px rgba(153, 0, 255, 0.9);
+}
+
+/* ===============================
+   Space Animation Canvas Behind Survey
+================================ */
+#space-canvas {
+    position: fixed; /* cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* full viewport */
+    z-index: 0; /* behind survey card and header */
+    pointer-events: none; /* allow clicks to pass through */
+    background: radial-gradient(circle at top, #0a0015, #05000f); /* subtle space look */
+}
+
+/* Ensure survey content stays above */
+header,
+#survey-form {
+    position: relative;
+    z-index: 1; /* above the canvas */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #d6b3ff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-shadow:
+        0 0 8px rgba(199, 125, 255, 0.8),
+        0 0 20px rgba(155, 89, 182, 0.6);
+    background: rgba(20, 10, 40, 0.85); /* dark transparent to see subtle canvas glow */
+    border-top: 2px solid rgba(155, 89, 182, 0.6);
+    border-radius: 12px 12px 0 0;
+    box-shadow:
+        0 0 15px rgba(199, 125, 255, 0.5),
+        0 0 40px rgba(155, 89, 182, 0.4);
+    position: relative;
+    z-index: 1;
+    animation: footerGlow 2s infinite ease-in-out;
+}
+
+@keyframes footerGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 8px rgba(199, 125, 255, 0.8),
+            0 0 20px rgba(155, 89, 182, 0.6);
+        box-shadow:
+            0 0 15px rgba(199, 125, 255, 0.5),
+            0 0 40px rgba(155, 89, 182, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 16px rgba(199, 125, 255, 1),
+            0 0 35px rgba(155, 89, 182, 0.8);
+        box-shadow:
+            0 0 25px rgba(199, 125, 255, 0.7),
+            0 0 60px rgba(155, 89, 182, 0.6);
+    }
 }

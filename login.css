@@ -224,3 +224,48 @@ body {
     box-shadow: 0 0 15px #8a2be2, 0 0 30px #4b00ff, 0 0 40px #ffbbff;
     color: #ffbbff;
 }
+
+/* ===============================
+   Footer (Bottom, glowing, space-themed)
+================================= */
+.login-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #d6b3ff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-shadow:
+        0 0 8px rgba(199, 125, 255, 0.8),
+        0 0 20px rgba(155, 89, 182, 0.6);
+    background: rgba(20, 10, 40, 0.85); /* slightly transparent to see canvas */
+    border-top: 2px solid rgba(155, 89, 182, 0.6);
+    border-radius: 12px 12px 0 0;
+    box-shadow:
+        0 0 15px rgba(199, 125, 255, 0.5),
+        0 0 40px rgba(155, 89, 182, 0.4);
+    position: relative; /* stays below the content naturally */
+    z-index: 1;
+    animation: footerGlow 2s infinite ease-in-out;
+}
+
+/* Pulsing neon glow animation */
+@keyframes footerGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 8px rgba(199, 125, 255, 0.8),
+            0 0 20px rgba(155, 89, 182, 0.6);
+        box-shadow:
+            0 0 15px rgba(199, 125, 255, 0.5),
+            0 0 40px rgba(155, 89, 182, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 16px rgba(199, 125, 255, 1),
+            0 0 35px rgba(155, 89, 182, 0.8);
+        box-shadow:
+            0 0 25px rgba(199, 125, 255, 0.7),
+            0 0 60px rgba(155, 89, 182, 0.6);
+    }
+}
+
