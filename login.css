@@ -1,0 +1,226 @@
+/* ===============================
+   General Reset & Body
+================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Verdana', sans-serif;
+    background: #0a0a1a; /* Dark base */
+    color: #e0e0ff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===============================
+   Cosmic Canvas
+================================= */
+#cosmic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2; /* behind everything */
+}
+
+/* ===============================
+   Login Container
+================================= */
+.login-container {
+    background: rgba(15, 0, 40, 0.85);
+    border: 2px solid #8a2be2;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(142, 68, 173, 0.7), 0 0 50px rgba(75, 0, 255, 0.5);
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 1s ease forwards;
+    z-index: 1; /* Ensure above canvas */
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================
+   Header
+================================= */
+.login-header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ffbbff;
+    text-align: center;
+    text-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
+    margin-bottom: 15px;
+}
+
+.login-header p {
+    text-align: center;
+    font-size: 1rem;
+    color: #d0c0ff;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* ===============================
+   Form
+================================= */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #e0d0ff;
+}
+
+.login-form input {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #9b59b6;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #ffbbff;
+    box-shadow: 0 0 10px #9b59b6;
+}
+
+/* Button */
+.login-button {
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #8a2be2, #4b00ff);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #8a2be2, 0 0 30px #4b00ff, 0 0 40px #9b59b6;
+}
+
+/* Links */
+.login-links {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.login-links a {
+    color: #d0c0ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.login-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px #8a2be2;
+}
+
+/* ===============================
+   Info Panel
+================================= */
+.login-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(75, 0, 255, 0.1);
+    border-left: 5px solid #9b59b6;
+    border-radius: 10px;
+    color: #e0d0ff;
+}
+
+.login-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffbbff;
+}
+
+.login-info ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.login-info li {
+    margin-bottom: 8px;
+}
+
+/* ===============================
+   Footer (Fixed Bottom)
+================================= */
+.login-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #b0a0ff;
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+}
+
+/* ===============================
+   Responsive
+================================= */
+@media screen and (max-width: 600px) {
+    .login-container {
+        padding: 25px;
+    }
+
+    .login-header h1 {
+        font-size: 2rem;
+    }
+
+    .login-button {
+        font-size: 1rem;
+    }
+}
+/* Back to Home Button */
+.home-button-container {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #4b00ff, #8a2be2);
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
+    transition: all 0.3s ease;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #8a2be2, 0 0 30px #4b00ff, 0 0 40px #ffbbff;
+    color: #ffbbff;
+}

@@ -292,20 +292,20 @@ a:hover {
     color: #fff;
     text-decoration: none;
     border-radius: 12px;
-    background: linear-gradient(135deg, #8a2be2, #4b00ff);
+    background: linear-gradient(135deg, #b266ff, #7f00ff); /* brighter gradient */
     box-shadow:
-        0 0 10px #8a2be2,
-        0 0 20px #4b00ff,
-        0 0 30px #9b59b6,
-        0 0 40px #8a2be2;
+        0 0 15px #b266ff,
+        0 0 30px #7f00ff,
+        0 0 45px #ff99ff,
+        0 0 60px #b266ff; /* stronger glow */
     transition: all 0.3s ease;
 }
 
 .start-survey:hover {
     transform: translateY(-3px);
     box-shadow:
-        0 0 15px #8a2be2,
-        0 0 30px #4b00ff,
-        0 0 45px #9b59b6,
-        0 0 60px #8a2be2;
+        0 0 20px #b266ff,
+        0 0 40px #7f00ff,
+        0 0 60px #ff99ff,
+        0 0 80px #b266ff;
 }
