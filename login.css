@@ -17,6 +17,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    scroll-behavior: smooth;
 }
 
 /* ===============================
@@ -38,12 +39,12 @@ body {
     background: rgba(15, 0, 40, 0.85);
     border: 2px solid #8a2be2;
     border-radius: 15px;
-    box-shadow: 0 0 25px rgba(142, 68, 173, 0.7), 0 0 50px rgba(75, 0, 255, 0.5);
+    box-shadow: 0 0 30px rgba(142, 68, 173, 0.8), 0 0 60px rgba(75, 0, 255, 0.6), 0 10px 20px rgba(0, 0, 0, 0.5);
     padding: 40px;
     max-width: 500px;
     width: 90%;
     backdrop-filter: blur(8px);
-    animation: fadeIn 1s ease forwards;
+    animation: fadeIn 1s ease forwards, floatAnimation 6s ease-in-out infinite;
     z-index: 1; /* Ensure above canvas */
 }
 
@@ -51,6 +52,12 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating Animation */
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 /* ===============================
@@ -63,6 +70,7 @@ body {
     text-align: center;
     text-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
     margin-bottom: 15px;
+    animation: headingGlow 3s infinite ease-in-out;
 }
 
 .login-header p {
@@ -71,6 +79,12 @@ body {
     color: #d0c0ff;
     margin-bottom: 30px;
     line-height: 1.5;
+}
+
+/* Heading Glow Animation */
+@keyframes headingGlow {
+    0%, 100% { text-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff; }
+    50% { text-shadow: 0 0 20px #ffbbff, 0 0 30px #9b59b6; }
 }
 
 /* ===============================
@@ -92,16 +106,25 @@ body {
     margin-bottom: 20px;
     border: 2px solid #9b59b6;
     border-radius: 10px;
-    background: rgba(0,0,0,0.3);
+    background: linear-gradient(270deg, #1a1a2e, #4b00ff, #1a1a2e);
+    background-size: 600% 600%;
     color: #fff;
     font-size: 1rem;
     outline: none;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    animation: gradientAnimation 10s ease infinite;
 }
 
 .login-form input:focus {
     border-color: #ffbbff;
-    box-shadow: 0 0 10px #9b59b6;
+    box-shadow: 0 0 15px #9b59b6, 0 0 25px #ffbbff;
+}
+
+/* Input Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Button */
@@ -115,12 +138,17 @@ body {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .login-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 15px #8a2be2, 0 0 30px #4b00ff, 0 0 40px #9b59b6;
+}
+
+.login-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 8px #8a2be2, 0 0 15px #4b00ff;
 }
 
 /* Links */
@@ -134,12 +162,12 @@ body {
     color: #d0c0ff;
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .login-links a:hover {
     color: #ffffff;
-    text-shadow: 0 0 8px #8a2be2;
+    text-shadow: 0 0 12px #8a2be2, 0 0 20px #4b00ff;
 }
 
 /* ===============================
@@ -170,35 +198,8 @@ body {
 }
 
 /* ===============================
-   Footer (Fixed Bottom)
+   Back to Home Button
 ================================= */
-.login-footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 0.8rem;
-    color: #b0a0ff;
-    position: fixed;
-    bottom: 10px;
-    width: 100%;
-}
-
-/* ===============================
-   Responsive
-================================= */
-@media screen and (max-width: 600px) {
-    .login-container {
-        padding: 25px;
-    }
-
-    .login-header h1 {
-        font-size: 2rem;
-    }
-
-    .login-button {
-        font-size: 1rem;
-    }
-}
-/* Back to Home Button */
 .home-button-container {
     margin-top: 25px;
     text-align: center;
@@ -216,7 +217,7 @@ body {
     text-decoration: none;
     cursor: pointer;
     box-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .home-button:hover {
@@ -226,7 +227,7 @@ body {
 }
 
 /* ===============================
-   Footer (Bottom, glowing, space-themed)
+   Footer
 ================================= */
 .login-footer {
     text-align: center;
@@ -238,34 +239,57 @@ body {
     text-shadow:
         0 0 8px rgba(199, 125, 255, 0.8),
         0 0 20px rgba(155, 89, 182, 0.6);
-    background: rgba(20, 10, 40, 0.85); /* slightly transparent to see canvas */
+    background: rgba(20, 10, 40, 0.85);
     border-top: 2px solid rgba(155, 89, 182, 0.6);
     border-radius: 12px 12px 0 0;
     box-shadow:
         0 0 15px rgba(199, 125, 255, 0.5),
         0 0 40px rgba(155, 89, 182, 0.4);
-    position: relative; /* stays below the content naturally */
+    position: relative;
     z-index: 1;
     animation: footerGlow 2s infinite ease-in-out;
 }
 
-/* Pulsing neon glow animation */
+.login-footer:hover {
+    animation: footerGlowHover 2s infinite ease-in-out;
+}
+
+/* Footer Glow Animations */
 @keyframes footerGlow {
     0%, 100% {
-        text-shadow:
-            0 0 8px rgba(199, 125, 255, 0.8),
-            0 0 20px rgba(155, 89, 182, 0.6);
-        box-shadow:
-            0 0 15px rgba(199, 125, 255, 0.5),
-            0 0 40px rgba(155, 89, 182, 0.4);
+        text-shadow: 0 0 8px rgba(199, 125, 255, 0.8), 0 0 20px rgba(155, 89, 182, 0.6);
+        box-shadow: 0 0 15px rgba(199, 125, 255, 0.5), 0 0 40px rgba(155, 89, 182, 0.4);
     }
     50% {
-        text-shadow:
-            0 0 16px rgba(199, 125, 255, 1),
-            0 0 35px rgba(155, 89, 182, 0.8);
-        box-shadow:
-            0 0 25px rgba(199, 125, 255, 0.7),
-            0 0 60px rgba(155, 89, 182, 0.6);
+        text-shadow: 0 0 16px rgba(199, 125, 255, 1), 0 0 35px rgba(155, 89, 182, 0.8);
+        box-shadow: 0 0 25px rgba(199, 125, 255, 0.7), 0 0 60px rgba(155, 89, 182, 0.6);
     }
 }
 
+@keyframes footerGlowHover {
+    0%, 100% {
+        text-shadow: 0 0 12px rgba(199, 125, 255, 1), 0 0 25px rgba(155, 89, 182, 0.8);
+        box-shadow: 0 0 20px rgba(199, 125, 255, 0.7), 0 0 50px rgba(155, 89, 182, 0.6);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(199, 125, 255, 1), 0 0 35px rgba(155, 89, 182, 1);
+        box-shadow: 0 0 30px rgba(199, 125, 255, 0.9), 0 0 70px rgba(155, 89, 182, 0.8);
+    }
+}
+
+/* ===============================
+   Responsive
+================================= */
+@media screen and (max-width: 600px) {
+    .login-container { padding: 25px; }
+    .login-header h1 { font-size: 2rem; }
+    .login-button { font-size: 1rem; }
+}
+
+@media screen and (max-width: 400px) {
+    .login-header h1 { font-size: 1.8rem; }
+    .login-info h2 { font-size: 1.3rem; }
+    .login-button, .home-button { font-size: 0.9rem; padding: 10px 20px; }
+}
+/* ===============================
+   End of login.css

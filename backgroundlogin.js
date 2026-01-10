@@ -17,11 +17,14 @@ const stars = Array.from({ length: 150 }, () => ({
     x: rand(0, canvas.width),
     y: rand(0, canvas.height),
     radius: rand(0.5, 1.5),
-    opacity: rand(0.3, 1)
+    opacity: rand(0.3, 1),
+    delta: rand(0.002, 0.008) // twinkle speed
 }));
 
 function drawStars() {
     stars.forEach(s => {
+        s.opacity += s.delta;
+        if (s.opacity > 1 || s.opacity < 0.2) s.delta = -s.delta; // twinkle
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255,255,255,${s.opacity})`;
@@ -103,3 +106,13 @@ function animate() {
 }
 
 animate();
+// =======================
+// Responsive
+// =======================  
+window.addEventListener("resize",()=>{
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+});
+// =======================
+// End of backgroundlogin.js
+// =======================

@@ -43,6 +43,7 @@ header {
         0 0 12px rgba(155, 89, 182, 0.8),
         0 0 30px rgba(142, 68, 173, 0.6);
     margin-bottom: 10px;
+    animation: headingGlow 4s infinite ease-in-out;
 }
 
 #description {
@@ -62,6 +63,7 @@ header {
     box-shadow:
         0 0 30px rgba(155, 89, 182, 0.6),
         0 0 80px rgba(75, 0, 255, 0.4);
+    animation: floatAnimation 6s ease-in-out infinite;
 }
 
 /* ===============================
@@ -99,23 +101,50 @@ textarea {
     width: 100%;
     padding: 12px 14px;
     margin-bottom: 18px;
-    background: rgba(10, 5, 30, 0.8);
+    background: linear-gradient(270deg, #1a1a2e, #4b00ff, #1a1a2e);
+    background-size: 600% 600%;
     border: 2px solid rgba(155, 89, 182, 0.6);
     border-radius: 10px;
     color: #ffffff;
     font-size: 1rem;
     outline: none;
     transition: 0.3s;
+    animation: gradientAnimation 12s ease infinite;
+}
+
+/* ===============================
+   Dropdown styling fix for readability & bold text
+================================ */
+select {
+    color: #c0b9e2; /* text color */
+    font-family: "Segoe UI", Arial, sans-serif; /* match site font */
+    font-weight: 700; /* bold text */
+    background: linear-gradient(270deg, #1a1a2e, #4b00ff, #1a1a2e); /* neon gradient */
+    background-size: 600% 600%; /* for gradient animation */
+    padding: 12px 14px;
+    border: 2px solid rgba(155, 89, 182, 0.6);
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    animation: gradientAnimation 12s ease infinite; /* keep the gradient moving */
+}
+
+/* Options inside the dropdown */
+select option {
+    color: #ffffff; /* option text color */
+    font-weight: 600; /* slightly less bold than the select box for readability */
+    font-family: "Segoe UI", Arial, sans-serif; 
+    background-color: #1a1a2e; /* dark background for contrast */
 }
 
 /* Glow on focus */
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #c77dff;
+    border-color: #ffbbff;
     box-shadow:
-        0 0 10px rgba(199, 125, 255, 0.8),
-        0 0 25px rgba(155, 89, 182, 0.6);
+        0 0 12px #9b59b6,
+        0 0 22px #ffbbff;
 }
 
 /* ===============================
@@ -170,6 +199,11 @@ textarea {
     box-shadow:
         0 0 30px rgba(199, 125, 255, 1),
         0 0 80px rgba(155, 89, 182, 0.9);
+}
+
+#submit:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
 }
 
 /* ===============================
@@ -261,44 +295,6 @@ textarea {
 }
 
 /* ===============================
-   Animated Input Focus
-================================ */
-
-input:focus,
-select:focus,
-textarea:focus {
-    animation: focusPulse 1.6s infinite ease-in-out;
-}
-
-@keyframes focusPulse {
-    0% {
-        box-shadow:
-            0 0 10px rgba(199, 125, 255, 0.6),
-            0 0 25px rgba(155, 89, 182, 0.4);
-    }
-    50% {
-        box-shadow:
-            0 0 18px rgba(199, 125, 255, 1),
-            0 0 45px rgba(155, 89, 182, 0.9);
-    }
-    100% {
-        box-shadow:
-            0 0 10px rgba(199, 125, 255, 0.6),
-            0 0 25px rgba(155, 89, 182, 0.4);
-    }
-}
-
-/* ===============================
-   Glow animation for progress
-================================ */
-
-@keyframes pulseGlow {
-    0% { opacity: 0.7; }
-    50% { opacity: 1; }
-    100% { opacity: 0.7; }
-}
-
-/* ===============================
    Fixed Login Button
 ================================ */
 
@@ -367,24 +363,84 @@ footer {
         0 0 40px rgba(155, 89, 182, 0.4);
     position: relative;
     z-index: 1;
-    animation: footerGlow 2s infinite ease-in-out;
+    animation: footerGlow 3s infinite ease-in-out;
 }
 
-@keyframes footerGlow {
+@keyframes headingGlow {
     0%, 100% {
         text-shadow:
-            0 0 8px rgba(199, 125, 255, 0.8),
-            0 0 20px rgba(155, 89, 182, 0.6);
-        box-shadow:
-            0 0 15px rgba(199, 125, 255, 0.5),
-            0 0 40px rgba(155, 89, 182, 0.4);
+            0 0 10px #8a2be2,
+            0 0 20px #4b00ff;
     }
     50% {
         text-shadow:
-            0 0 16px rgba(199, 125, 255, 1),
-            0 0 35px rgba(155, 89, 182, 0.8);
-        box-shadow:
-            0 0 25px rgba(199, 125, 255, 0.7),
-            0 0 60px rgba(155, 89, 182, 0.6);
+            0 0 18px #ffbbff,
+            0 0 30px #9b59b6;
     }
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+@keyframes footerGlow {
+    0%,100% { box-shadow: 0 0 15px #9b59b6, 0 0 35px #7f00ff; }
+    50% { box-shadow: 0 0 25px #ffbbff, 0 0 50px #8a2be2; }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+/* ===============================
+   Home Button
+================================= */
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 18px;
+    font-weight: 800;
+    color: #ffbbff;
+    background: linear-gradient(135deg, #7f00ff, #c77dff);
+    box-shadow: 0 0 10px #c77dff, 0 0 25px #7f00ff;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px #c77dff, 0 0 40px #7f00ff, 0 0 50px #ffbbff;
+    color: #fff;
+}
+
+.home-button {
+    color: #fff;
+    background: linear-gradient(135deg, #4b00ff, #8a2be2);
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
+    transition: all 0.3s ease;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #8a2be2, 0 0 30px #4b00ff, 0 0 40px #ffbbff;
+    color: #ffbbff;
 }

@@ -1,0 +1,388 @@
+/* ===============================
+   General Reset & Body
+================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Verdana', sans-serif;
+    background: #0a0a1a;
+    color: #e0e0ff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===============================
+   Cosmic Canvas
+================================= */
+#cosmic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+/* ===============================
+   Sign Up Container
+================================= */
+.signup-container {
+    background: rgba(15, 0, 40, 0.85);
+    border: 2px solid #8a2be2;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(142, 68, 173, 0.7), 0 0 50px rgba(75, 0, 255, 0.5);
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 1s ease forwards;
+    z-index: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================
+   Header
+================================= */
+.signup-header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ffbbff;
+    text-align: center;
+    text-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
+    margin-bottom: 15px;
+}
+
+.signup-header p {
+    text-align: center;
+    font-size: 1rem;
+    color: #d0c0ff;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* ===============================
+   Form
+================================= */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form label {
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #e0d0ff;
+}
+
+.signup-form input {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #9b59b6;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.signup-form input:focus {
+    border-color: #ffbbff;
+    box-shadow: 0 0 10px #9b59b6;
+}
+
+/* Button */
+.signup-button {
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #8a2be2, #4b00ff);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
+    transition: all 0.3s ease;
+}
+
+.signup-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #8a2be2, 0 0 30px #4b00ff, 0 0 40px #9b59b6;
+}
+
+/* Links */
+.signup-links {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.signup-links a {
+    color: #d0c0ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.signup-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px #8a2be2;
+}
+
+/* ===============================
+   Info Panel
+================================= */
+.signup-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(75, 0, 255, 0.1);
+    border-left: 5px solid #9b59b6;
+    border-radius: 10px;
+    color: #e0d0ff;
+}
+
+.signup-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffbbff;
+}
+
+.signup-info ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.signup-info li {
+    margin-bottom: 8px;
+}
+
+/* ===============================
+   Back to Home Button
+================================= */
+.home-button-container {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #4b00ff, #8a2be2);
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px #8a2be2, 0 0 20px #4b00ff;
+    transition: all 0.3s ease;
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px #8a2be2, 0 0 30px #4b00ff, 0 0 40px #ffbbff;
+    color: #ffbbff;
+}
+
+/* ===============================
+   Footer
+================================= */
+.signup-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #d6b3ff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-shadow:
+        0 0 8px rgba(199, 125, 255, 0.8),
+        0 0 20px rgba(155, 89, 182, 0.6);
+    background: rgba(20, 10, 40, 0.85);
+    border-top: 2px solid rgba(155, 89, 182, 0.6);
+    border-radius: 12px 12px 0 0;
+    box-shadow:
+        0 0 15px rgba(199, 125, 255, 0.5),
+        0 0 40px rgba(155, 89, 182, 0.4);
+    position: relative;
+    z-index: 1;
+    animation: footerGlow 2s infinite ease-in-out;
+}
+
+@keyframes footerGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 8px rgba(199, 125, 255, 0.8),
+            0 0 20px rgba(155, 89, 182, 0.6);
+        box-shadow:
+            0 0 15px rgba(199, 125, 255, 0.5),
+            0 0 40px rgba(155, 89, 182, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 16px rgba(199, 125, 255, 1),
+            0 0 35px rgba(155, 89, 182, 0.8);
+        box-shadow:
+            0 0 25px rgba(199, 125, 255, 0.7),
+            0 0 60px rgba(155, 89, 182, 0.6);
+    }
+}
+
+/* ===============================
+   Responsive
+================================= */
+@media screen and (max-width: 600px) {
+    .signup-container {
+        padding: 25px;
+    }
+
+    .signup-header h1 {
+        font-size: 2rem;
+    }
+
+    .signup-button {
+        font-size: 1rem;
+    }
+}
+/* ===============================
+   Additional Enhancements
+================================= */
+/* Subtle animated gradient for inputs */
+.signup-form input {
+    background: linear-gradient(270deg, #1a1a2e, #4b00ff, #1a1a2e);
+    background-size: 600% 600%;
+    animation: gradientAnimation 10s ease infinite;
+}
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* Glow effect for headings */
+.signup-header h1 {
+    animation: headingGlow 3s infinite ease-in-out;
+}
+
+@keyframes headingGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 10px #8a2be2,
+            0 0 20px #4b00ff;
+    }
+    50% {
+        text-shadow:
+            0 0 20px #ffbbff,
+            0 0 30px #9b59b6;
+    }
+}
+/* Button press effect */
+.signup-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 8px #8a2be2, 0 0 15px #4b00ff;
+}
+/* Smooth transition for all interactive elements */
+.signup-form input,
+.signup-button,         
+.home-button {
+    transition: all 0.4s ease;
+}
+
+/* Enhanced link hover effect */
+.signup-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 12px #8a2be2, 0 0 20px #4b00ff;
+}
+/* Footer pulsating glow */
+.signup-footer {
+    animation: footerGlow 3s infinite ease-in-out;
+}
+
+/* Star twinkle effect on cosmic background */
+#cosmic-bg .star {
+    animation: starTwinkle 5s infinite ease-in-out;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+/* Smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+/* Enhanced focus effect for accessibility */
+.signup-form input:focus {
+    border-color: #ffbbff;
+    box-shadow: 0 0 15px #9b59b6, 0 0 25px #ffbbff;
+}
+
+/* Subtle floating animation for the sign-up container */
+.signup-container {
+    animation: floatAnimation 6s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}   
+/* Enhanced box-shadow for the sign-up container */
+.signup-container {
+    box-shadow:
+        0 0 30px rgba(142, 68, 173, 0.8),
+        0 0 60px rgba(75, 0, 255, 0.6),
+        0 10px 20px rgba(0, 0, 0, 0.5);
+}
+/* Footer hover effect */
+.signup-footer:hover {
+    animation: footerGlowHover 2s infinite ease-in-out;
+}
+@keyframes footerGlowHover {
+    0%, 100% {
+        text-shadow:
+            0 0 12px rgba(199, 125, 255, 1),
+            0 0 25px rgba(155, 89, 182, 0.8);
+        box-shadow:
+            0 0 20px rgba(199, 125, 255, 0.7),
+            0 0 50px rgba(155, 89, 182, 0.6);
+    }
+    50% {
+        text-shadow:
+            0 0 20px rgba(199, 125, 255, 1),
+            0 0 35px rgba(155, 89, 182, 1);
+        box-shadow:
+            0 0 30px rgba(199, 125, 255, 0.9),
+            0 0 70px rgba(155, 89, 182, 0.8);
+    }
+}
+/* Responsive adjustments for smaller devices */
+@media screen and (max-width: 400px) {
+    .signup-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .signup-info h2 {
+        font-size: 1.3rem;
+    }
+
+    .signup-button,         
+    .home-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+/* ===============================
+   End of signup.css
+================================= */

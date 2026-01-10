@@ -286,30 +286,162 @@ a:hover {
 .start-survey {
     display: inline-block;
     margin-top: 30px;
-    padding: 1rem 2rem;
+    padding: 1rem 2.2rem;
     font-size: 1.2rem;
     font-weight: 700;
-    color: #fff;
+    color: #f6e9ff;
     text-decoration: none;
+    border-radius: 14px;
+
+    /* Rich neon-violet plasma gradient */
+    background: linear-gradient(
+        120deg,
+        #b266ff,
+        #8b2bff,
+        #ff8cff
+    );
+    background-size: 300% 300%;
+
+    /* Quantum glow field */
+    box-shadow:
+        0 0 18px rgba(190, 120, 255, 0.7),
+        0 0 40px rgba(140, 0, 255, 0.5),
+        0 0 80px rgba(255, 140, 255, 0.35);
+
+    position: relative;
+    overflow: hidden;
+
+    animation:
+        violetFlow 8s linear infinite,
+        violetPulse 4s ease-in-out infinite;
+
+    transition: transform 0.3s ease;
+}
+
+/* Plasma movement */
+@keyframes violetFlow {
+    0%   { background-position:   0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position:   0% 50%; }
+}
+
+/* Energy breathing */
+@keyframes violetPulse {
+    0% {
+        box-shadow:
+            0 0 16px rgba(190,120,255,0.6),
+            0 0 35px rgba(140,0,255,0.4),
+            0 0 70px rgba(255,140,255,0.3);
+    }
+    50% {
+        box-shadow:
+            0 0 30px rgba(220,160,255,0.9),
+            0 0 70px rgba(170,80,255,0.7),
+            0 0 120px rgba(255,160,255,0.6);
+    }
+    100% {
+        box-shadow:
+            0 0 16px rgba(190,120,255,0.6),
+            0 0 35px rgba(140,0,255,0.4),
+            0 0 70px rgba(255,140,255,0.3);
+    }
+}
+
+/* Energy containment ring */
+.start-survey::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #b266ff, #7f00ff); /* brighter gradient */
-    box-shadow:
-        0 0 15px #b266ff,
-        0 0 30px #7f00ff,
-        0 0 45px #ff99ff,
-        0 0 60px #b266ff; /* stronger glow */
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 180, 255, 0.45);
+    pointer-events: none;
 }
 
+/* Hover = boosted power */
 .start-survey:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px) scale(1.05);
     box-shadow:
-        0 0 20px #b266ff,
-        0 0 40px #7f00ff,
-        0 0 60px #ff99ff,
-        0 0 80px #b266ff;
+        0 0 35px rgba(220,160,255,1),
+        0 0 90px rgba(170,80,255,0.8),
+        0 0 140px rgba(255,180,255,0.7);
 }
 
+.get-started {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 1rem 2.2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #eaf3ff;
+    text-decoration: none;
+    border-radius: 14px;
+
+    /* Scientific blue-violet gradient */
+    background: linear-gradient(120deg, #3a7dff, #245bff, #4bb0ff);
+    background-size: 300% 300%;
+
+    /* Soft field glow */
+    box-shadow:
+        0 0 18px rgba(70, 120, 255, 0.6),
+        0 0 40px rgba(60, 100, 255, 0.4);
+
+    position: relative;
+    overflow: hidden;
+
+    /* Core animation */
+    animation:
+        energyFlow 8s linear infinite,
+        quantumPulse 4s ease-in-out infinite;
+
+    transition: transform 0.3s ease;
+}
+
+/* Smooth energy drift (feels like plasma flowing) */
+@keyframes energyFlow {
+    0%   { background-position:   0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position:   0% 50%; }
+}
+
+/* Subtle quantum breathing — not blinking */
+@keyframes quantumPulse {
+    0% {
+        box-shadow:
+            0 0 16px rgba(80,140,255,0.5),
+            0 0 35px rgba(80,140,255,0.35);
+    }
+    50% {
+        box-shadow:
+            0 0 28px rgba(120,180,255,0.8),
+            0 0 65px rgba(120,180,255,0.6);
+    }
+    100% {
+        box-shadow:
+            0 0 16px rgba(80,140,255,0.5),
+            0 0 35px rgba(80,140,255,0.35);
+    }
+}
+
+/* Micro-glow ring — looks like an energy field */
+.get-started::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 12px;
+    border: 1px solid rgba(150, 200, 255, 0.35);
+    pointer-events: none;
+}
+
+/* Hover = energy intensifies */
+.get-started:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow:
+        0 0 35px rgba(120,180,255,0.9),
+        0 0 80px rgba(100,160,255,0.7);
+}
+/* ===============================
+   Footer Styling 
+================================= */
 footer {
     text-align: center;
     padding: 20px;
@@ -348,4 +480,16 @@ footer {
             0 0 25px rgba(199, 125, 255, 0.7),
             0 0 60px rgba(155, 89, 182, 0.6);
     }
+}
+
+/* ===============================
+   Scientific Background Canvas
+================================= */
+#science-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 50%, #0b0b22, #02010a);
 }

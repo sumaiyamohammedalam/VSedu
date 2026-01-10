@@ -283,3 +283,5 @@ window.addEventListener("resize",()=>{
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
 });
+
+// End of spacesurvey.js
