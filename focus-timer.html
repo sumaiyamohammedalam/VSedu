@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90/20 Deep Focus Loop - VSedu</title>
+    <link rel="stylesheet" href="focus-timer.css">
+</head>
+<body>
+
+<header class="page-header">
+    <h1>90/20 Deep Focus Loop</h1>
+    <p class="subtitle">Work smarter by syncing with your brain's natural focus cycles.</p>
+    <a href="VSedu.html" class="back-home">← Back to Main Page</a>
+    <!-- Add this canvas for the glow effect -->
+<canvas id="back-canvas" class="back-canvas"></canvas>
+</header>
+
+<main class="focus-container">
+
+    <!-- Explanation Card -->
+<div class="cards-row">
+    <section class="card explanation-card">
+        <h2>What is the 90/20 Deep Focus Loop?</h2>
+        <p>The 90/20 Deep Focus Loop is a method for maximizing productivity and preventing burnout. 
+        Work for 90 minutes in full focus, then take a 20-minute break. Repeat the cycle 3–4 times a day.</p>
+
+<div class="columns-container">
+    <div class="column">
+        <h3>How to Apply It:</h3>
+        <ul>
+            <li>Pick one important task. Avoid multitasking.</li>
+            <li>Work 90 minutes without distractions (turn off notifications, close extra tabs).</li>
+            <li>Take a 20-minute break: stretch, hydrate, walk, or meditate.</li>
+            <li>Repeat as needed, up to 3–4 cycles per day.</li>
+        </ul>
+    </div>
+    <div class="column">
+        <h3>Why It Works:</h3>
+        <ul>
+            <li>Maintains focus without mental fatigue.</li>
+            <li>Helps enter a flow state for maximum productivity.</li>
+            <li>Prevents burnout with restorative breaks.</li>
+            <li>Boosts motivation by knowing a break is coming.</li>
+        </ul>
+    </div>
+</div>
+
+    </section>
+
+    <!-- Timer Section -->
+    <section class="card timer-card">
+        <h2>Focus Timer</h2>
+        <div class="timer-circle-container">
+            <canvas id="timer-circle" width="260" height="260"></canvas>
+            <div class="timer-display" id="timer-display">90:00</div>
+        </div>
+        <div class="timer-controls">
+            <button id="start-btn">Start</button>
+            <button id="pause-btn">Pause</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        <p class="phase-indicator">Current Phase: Work</p>
+    </section>
+</div>
+    <!-- Tips Section -->
+    <section class="card tips-card">
+        <h2>Pro Tip</h2>
+        <p id="tip-text">Take a short walk during your 20-minute break to refresh your mind and improve focus.</p>
+    </section>
+
+</main>
+
+<!-- Mini Space Window -->
+<div class="space-window">
+    <canvas></canvas>
+</div>
+
+<footer>
+    <p>© 2026 VSedu | Designed with 💜 for better learning.</p>
+</footer>
+
+<script src="focus-timer.js"></script>
+</body>
+</html>

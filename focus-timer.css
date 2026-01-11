@@ -1,0 +1,443 @@
+/* ===============================
+   General Body & Reset
+================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Verdana', sans-serif;
+    background: #0a0a1a;
+    color: #e0e0ff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ===============================
+   Header
+================================= */
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffbbff;
+    text-shadow: 0 0 10px #b266ff, 0 0 20px #8a2be2;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* Neon underline for main header */
+header h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ffbbff, #b266ff, #8a2be2);
+    border-radius: 2px;
+    box-shadow: 0 0 10px #ffbbff, 0 0 20px #b266ff, 0 0 30px #8a2be2;
+}
+
+/* Header subtitle */
+header p {
+    font-size: 1.2rem;
+    color: #dda0dd;
+    text-shadow: 0 0 3px #ffbbff, 0 0 6px #b266ff, 0 0 10px #8a2be2;
+}
+
+/* ===============================
+   Card Sections
+================================= */
+.card {
+    max-width: 600px;
+    padding: 25px 35px;
+    border-radius: 18px;
+    background: rgba(75, 0, 255, 0.1);
+    border: 2px solid #9b59b6;
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.5);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0; /* <-- remove auto margin for flex */
+}
+
+/* ===============================
+   Side-by-Side Cards Row
+================================= */
+.cards-row {
+    display: flex;
+    gap: 30px; /* space between the cards */
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap; /* allow wrapping on very small screens */
+    width: 100%;
+    max-width: 1200px; /* constrain row width */
+    margin: 30px auto; /* center row horizontally */
+}
+
+.cards-row .card {
+    flex: 1 1 45%; /* flex-grow:1, flex-shrink:1, base width 45% */
+    margin: 0; /* remove auto margins */
+    max-width: none; /* allow flex width to control sizing */
+}
+
+/* Optional: slightly smaller timer circle when side-by-side */
+.cards-row .timer-card .timer-circle-container {
+    width: 300px;
+    height: 300px;
+}
+
+/* ===============================
+   Explanation Card Columns
+================================= */
+.columns-container {
+    display: flex;
+    gap: 25px; /* space between columns */
+    margin-top: 20px;
+    flex-wrap: wrap; /* stack on small screens */
+}
+
+.column {
+    flex: 1; /* each column takes equal space */
+    min-width: 250px; /* prevent too narrow columns */
+    background: rgba(155, 89, 182, 0.1);
+    border: 1px solid #9b59b6;
+    border-radius: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 0 15px rgba(155, 89, 182, 0.3);
+}
+
+.explanation-card h2 {
+    border-bottom: 2px solid #b266ff;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.explanation-card p {
+    margin: 10px 0 20px 0;
+    text-align: center;
+}
+
+/* ===============================
+   Timer Circle Container
+================================= */
+.timer-circle-container {
+    position: relative;
+    width: 365px; /* bigger circle */
+    height: 365px; /* bigger circle */
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Canvas for circle */
+#timer-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Timer number inside circle */
+.timer-circle-container .timer-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem; /* bigger number */
+    font-weight: 900;
+    color: #00f5ff; /* bright neon retro blue */
+    text-shadow:
+        0 0 10px #00f5ff,
+        0 0 20px #00ffff,
+        0 0 30px #00e5ff,
+        0 0 40px #00d5ff;
+    pointer-events: none;
+}
+
+/* Timer Controls Buttons */
+.timer-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.timer-controls button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(120deg, #b266ff, #8a2be2, #ff8cff);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 0 5px;
+    box-shadow: 0 0 15px rgba(155, 89, 182, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timer-controls button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #9b59b6, 0 0 50px #8a2be2;
+}
+
+.phase-indicator {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #ffccff;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ffbbff, 0 0 10px #b266ff, 0 0 15px #8a2be2;
+}
+
+/* ===============================
+   Mini Space Window
+================================= */
+.space-window {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle at center, #0b0b22, #02010a);
+    border: 2px solid #9b59b6;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.7);
+    overflow: hidden;
+    z-index: 1000;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.space-window.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.space-window canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ===============================
+   Tips Card Fix
+================================= */
+.tips-card {
+    margin: 30px auto 50px auto; /* center horizontally and add spacing top/bottom */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tips-card p, #tip-text {
+    font-size: 1rem;
+    text-align: center;
+    color: #ffccff;
+    text-shadow: 0 0 2px #ffccff, 0 0 4px #b266ff, 0 0 6px #8a2be2;
+}
+
+/* ===============================
+   Footer
+================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #d6b3ff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-shadow: 0 0 8px rgba(199, 125, 255, 0.8);
+}
+
+/* ===============================
+   Neon Glow Text Styles
+================================= */
+/* Card Headings */
+.card h2, .card h3 {
+    color: #ffbbff;
+    text-shadow:
+        0 0 5px #ffbbff,
+        0 0 10px #b266ff,
+        0 0 20px #8a2be2,
+        0 0 30px #8a2be2;
+}
+
+/* Card Paragraphs / Lists */
+.card p, .card li {
+    color: #e0e0ff;
+    text-shadow: 0 0 3px #dda0dd, 0 0 6px #b266ff;
+}
+
+/* ===============================
+   Back Home Neon Button Fix
+================================= */
+.back-home {
+    display: inline-block;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffbbff;
+    background: rgba(138, 43, 226, 0.2);
+    border: 2px solid #b266ff;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 0 10px #ffbbff, 0 0 20px #b266ff, 0 0 30px #8a2be2;
+    transition: 0.3s;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-home:hover {
+    box-shadow: 0 0 20px #ffbbff, 0 0 40px #b266ff, 0 0 60px #8a2be2;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+/* ===============================
+   Responsive Design
+================================= */
+@media (max-width: 1000px) {
+    .cards-row {
+        flex-direction: column; /* stack vertically on smaller screens */
+        gap: 20px;
+    }
+
+    .cards-row .timer-card .timer-circle-container {
+        width: 220px;
+        height: 220px;
+    }
+
+    .cards-row .timer-card .timer-display {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .card {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .timer-circle-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .timer-display {
+        font-size: 3rem;
+    }
+
+    .space-window {
+        width: 140px;
+        height: 140px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* ===============================
+   Glow Animations
+================================= */
+@keyframes glow {
+    0%, 100% {
+        text-shadow:
+            0 0 5px #ffbbff,
+            0 0 10px #b266ff,
+            0 0 20px #8a2be2;
+    }
+    50% {
+        text-shadow:
+            0 0 15px #ffbbff,
+            0 0 30px #b266ff,
+            0 0 40px #8a2be2;
+    }
+}
+
+header h1, .timer-display {
+    animation: glow 3s infinite;
+}
+
+/* ===============================
+   Footer Styling 
+================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #d6b3ff;
+    font-weight: 600;
+    font-size: 1rem;
+    text-shadow:
+        0 0 8px rgba(199, 125, 255, 0.8),
+        0 0 20px rgba(155, 89, 182, 0.6);
+    background: rgba(20, 10, 40, 0.85); /* dark transparent to see subtle canvas glow */
+    border-top: 2px solid rgba(155, 89, 182, 0.6);
+    border-radius: 12px 12px 0 0;
+    box-shadow:
+        0 0 15px rgba(199, 125, 255, 0.5),
+        0 0 40px rgba(155, 89, 182, 0.4);
+    position: relative;
+    z-index: 1;
+    animation: footerGlow 2s infinite ease-in-out;
+}
+
+@keyframes footerGlow {
+    0%, 100% {
+        text-shadow:
+            0 0 8px rgba(199, 125, 255, 0.8),
+            0 0 20px rgba(155, 89, 182, 0.6);
+        box-shadow:
+            0 0 15px rgba(199, 125, 255, 0.5),
+            0 0 40px rgba(155, 89, 182, 0.4);
+    }
+    50% {
+        text-shadow:
+            0 0 16px rgba(199, 125, 255, 1),
+            0 0 35px rgba(155, 89, 182, 0.8);
+        box-shadow:
+            0 0 25px rgba(199, 125, 255, 0.7),
+            0 0 60px rgba(155, 89, 182, 0.6);
+    }
+}
+
+.back-canvas {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 180px;  /* slightly bigger than button */
+    height: 50px;
+    pointer-events: none;
+    z-index: 0; /* behind the button */
+}
+
+.back-home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1; /* above canvas */
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffbbff;
+    text-decoration: none;
+    border-radius: 12px;
+}
+.back-home:hover {
+    text-decoration: none;
+}
+
+/* ===============================
+   End of focus-timer.css
