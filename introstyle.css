@@ -169,6 +169,7 @@ body {
     #e9d4ff
   );
   -webkit-background-clip: text;
+  background-clip: text; /* Added standard property for compatibility */
   -webkit-text-fill-color: transparent;
 
   text-shadow:
